@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Clothes</title>
-</head>
-<body>
+<%- include('templates/header.ejs') %>
+<div style="margin: 20px;">
   <h1>Add Clothes</h1><br><br>
   <form action="/clothes/add" method="post">
     <label for="">Nama</label><br>
@@ -25,9 +18,10 @@
     <input type="number" name="stock"><br>
     <br>
     <label for="">Image</label><br>
-    <input type="url" name="image"><br>
+    <input type="text" name="image"><br>
     <br>
     <input type="submit" value="Submit">
   </form>
-</body>
-</html>
+</div>
+
+<%- include('templates/footer.ejs') %>

@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate(instance) {
         instance.password = hashPassword(instance.password)
-        instance.role = 'user'
+        instance.role = 'admin'
       }
     },
     sequelize,
