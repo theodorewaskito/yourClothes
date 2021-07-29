@@ -18,8 +18,9 @@ class AuthController {
                     if (isPasswordMatch) {
                         req.session.isLogin = true
                         req.session.role = data.role
+                        req.session.userId = data.id
                         if (data.role === 'admin') {
-                            res.redirect('/clothes')
+                            res.redirect('/admin')
                         } else if (data.role === 'user') {
                             res.redirect('/user')
                         }
@@ -49,6 +50,11 @@ class AuthController {
             .catch(err => {
                 res.send(err)
             })
+    }
+    static logout(req, res) {
+        req.session.isLogin = false
+        req.session.role = null
+        res.redirect('/login')
     }
 }
 module.exports = AuthController

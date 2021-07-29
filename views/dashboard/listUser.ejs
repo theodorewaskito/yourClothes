@@ -1,0 +1,37 @@
+<%- include('templates/header.ejs') %>
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <h1>List User Transaction</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th>Name</th>
+                            <th>Total Transaction</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach( (el,i)=> { %>
+                            <tr>
+                                <td>
+                                    <%= i+1 %>
+                                </td>
+                                <td>
+                                    <%= el.name %>
+                                </td>
+                                <td>
+                                    <%= el.Clothes.length %>
+                                </td>
+                                <td>
+                                    <a href="/admin/transaction/list/<%= el.id %> ">List Transaction</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include('templates/footer.ejs') %>
