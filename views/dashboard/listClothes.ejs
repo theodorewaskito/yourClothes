@@ -1,31 +1,38 @@
 <%- include('templates/header.ejs') %>
-<div style="margin: 20px;">
-  <h1>List Clothes</h1>
-  <form method="get" action="/clothes/add">
-    <button type="submit" class="btn btn-primary">Add Clothes</button>
-  </form><br>
-  <table border="1">
-    <tr>
-      <th>Name</th>
-      <th>Material</th>
-      <th>Color</th>
-      <th>Price</th>
-      <th>Stock</th>
-      <th>Image</th>
-      <th>Action</th>
-    </tr>
-    <% data.forEach( el => { %>
-    <tr>
-        <td><%= el.name %></td>
-        <td><%= el.material %></td>
-        <td><%= el.color %></td>
-        <td><%= el.price %></td>
-        <td><%= el.stock %></td>
-        <td><img src="<%= el.image %>" alt="#"></img></td>
-        <td><a href="clothes/edit/<%= el.id %>">Edit</a> | <a href="clothes/delete/<%= el.id %>">Delete</a></td>
-    </tr>
-    <% }) %>
-  </table>
-</div>  
-
-<%- include('templates/footer.ejs') %>
+    <div class="dashboard-wrapper">
+        <div class="dashboard-ecommerce">
+            <div class="container-fluid dashboard-content ">
+                <h1>Page Product</h1>
+                <form method="get" action="clothes/add">
+                    <button type="submit" class="btn btn-primary">Add Clothes</button>
+                </form><br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Material</th>
+                            <th>Color</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach( el => { %>
+                            <tr>
+                                <td><%= el.name %></td>
+                                <td><%= el.material %></td>
+                                <td><%= el.color %></td>
+                                <td><%= el.price %></td>
+                                <td><%= el.stock %></td>
+                                <td><img src="<%= el.image %>" alt="#"></img></td>
+                                <td><a href="clothes/edit/<%= el.id %>">Edit</a> | <a href="clothes/delete/<%= el.id %>">Delete</a></td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include('templates/footer.ejs') %>

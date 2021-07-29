@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     res.send('hello')
 })
 router.use('/', authRoute)
-router.use('/admin/clothes', clothesRouter) //tambahan
+router.use('/admin', clothesRouter) //tambahan
 router.get('/user', (req, res) => {
     res.send('Page User')
 })

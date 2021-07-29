@@ -19,7 +19,7 @@ class AuthController {
                         req.session.isLogin = true
                         req.session.role = data.role
                         if (data.role === 'admin') {
-                            res.redirect('/clothes')
+                            res.redirect('/admin/clothes')
                         } else if (data.role === 'user') {
                             res.redirect('/user')
                         }

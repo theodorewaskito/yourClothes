@@ -5,7 +5,7 @@ class clothesController {
     static showClothes(req, res) {
       Clothes.findAll()
         .then(data => {
-          res.render("listClothes", {data})
+          res.render("dashboard/listClothes.ejs", {data})
         })
         .catch(err => {
           res.send(err)
@@ -13,7 +13,7 @@ class clothesController {
     }
 
     static getAddClothes(req, res) {
-      res.render('addClothes')
+      res.render('dashboard/addClothes.ejs')
     } 
 
     static postAddClothes(req, res) {
@@ -26,7 +26,7 @@ class clothesController {
       }
       Clothes.create(data)
         .then(() => {
-          res.redirect('/clothes')
+          res.redirect('/admin/product')
         })
         .catch((err) => {
           res.send(err)
@@ -38,7 +38,7 @@ class clothesController {
       let id = req.params.id
       Clothes.findByPk(id)
         .then((data) => {
-          res.render("editClothes", {data})
+          res.render("dashboard/editClothes", {data})
         })
         .catch((err) => {
           res.send(err)
