@@ -26,8 +26,8 @@
                                 <td><%= el.color %></td>
                                 <td><%= el.price %></td>
                                 <td><%= el.stock %></td>
-                                <td><img src="<%= el.image %>" alt="#"></img></td>
-                                <td><a href="clothes/edit/<%= el.id %>">Edit</a> | <a href="clothes/delete/<%= el.id %>">Delete</a></td>
+                                <td><img src="<%= el.image %>" alt="#"  width="70" height="70"></img></td>
+                                <td><a href="/admin/clothes/edit/<%= el.id %>">Edit</a> | <a href="/admin/clothes/delete/<%= el.id %>">Delete</a></td>
                             </tr>
                             <% }) %>
                     </tbody>

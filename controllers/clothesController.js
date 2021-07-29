@@ -1,4 +1,4 @@
-const { Clothes } = require('../models/index')
+const { Clothes, UserClothes, User } = require('../models/index')
 
 class clothesController {
   
@@ -38,7 +38,7 @@ class clothesController {
       let id = req.params.id
       Clothes.findByPk(id)
         .then((data) => {
-          res.render("dashboard/editClothes", {data})
+          res.render("dashboard/editClothes.ejs", {data})
         })
         .catch((err) => {
           res.send(err)
@@ -61,7 +61,7 @@ class clothesController {
         }
       })
         .then(() => {
-          res.redirect('/clothes')
+          res.redirect('/admin/product')
         })
         .catch((err) => {
           res.send(err)
@@ -76,7 +76,18 @@ class clothesController {
         }
       })
         .then(() => {
-          res.redirect("/clothes")
+          res.redirect("/admin/product")
+        })
+        .catch((err) => {
+          res.send(err)
+        })
+    }
+
+    static userPurchase(req, res) {
+      let result = {}
+      UserClothes.findAll()
+        .then((data) => {
+          res.send(data)
         })
         .catch((err) => {
           res.send(err)
